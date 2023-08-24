@@ -1,0 +1,62 @@
+html_and_css_code = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<style>
+body {
+  font-family: sans-serif
+  background-color: #0F1C2E;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.already-have-account {
+  text-align: center;
+}
+
+.already-have-account a {
+  color: #333;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+<h1>Sign Up</h1>
+<form action="/submit" method="post">
+<input type="text" name="first_name" placeholder="First Name">
+<input type="text" name="last_name" placeholder="Last Name">
+<input type="tel" name="phone_number" placeholder="Phone Number">
+<input type="email" name="email_id" placeholder="E-Mail ID">
+<input type="submit" value="Submit">
+</form>
+<div class="already-have-account">
+  <a href="#">Already have an account? Log in</a>
+</div>
+</body>
+</html>
+"""
+
+from IPython.display import display, HTML
+display(HTML(html_and_css_code))
