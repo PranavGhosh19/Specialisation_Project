@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Page</title>
+<title>Log In</title>
 <style>
 body {
-background-color: #0F1C2E;
+  background-color: #0F1C2E;
 }
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #0f1c2e;
+}
+
 h1 {
-color: #FFFFFF;
-text-align: center;
+  color: #ffffff;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
-label {
-color: #FFFFFF;
-text-align: center;
-}
+
 input {
-color: #000000;
-border: 1px solid #D9D9D9;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
 }
-input:focus {
-border-color: #8098C0;
+
+button {
+  background-color: #8098C0;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
 }
-.submit {
-color: #000000;
-background-color: #8098C0;
-border: 1px solid #8098C0;
-text-align: center;
+
+.forget-password {
+  color: #ffffff;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
-.submit:hover {
-background-color: #FFFFFF;
-color: #8098C0;
-}
-a {
-color: #FFFFFF;
-}
-a:hover {
-color: #8098C0;
-}
-.button {
-background-color: #8098C0;
-color: #FFFFFF;
-border: 1px solid #8098C0;
-text-align: center;
-}
-.button:hover {
-background-color: #FFFFFF;
-color: #8098C0;
-}
-.forget-password? {
-color: #FFFFFF;
-text-align: center;
+
+.forget-password a {
+  background-color: #8098C0;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  align-items: center;
+  margin: 0 auto;
 }
 </style>
 </head>
 <body>
-<h1 align="center">Log In</h1>
-<form action="/login" method="post" align="center">
-<label for="phone_number">Phone Number:</label>
-<input type="text" id="phone_number" name="phone_number" value="" placeholder="Enter your phone number" align="center">
-<br>
-<label for="password">Password:</label>
-<input type="password" id="password" name="password" value="" placeholder="Enter your password" align="center">
-<br>
-<input type="submit" class="submit" value="Submit" align="center">
-</form>
-<p class="forget-password?">Forget Password? <a href="forgetpassword.html">Click Here!</a></p>
-</a>
+<div class="container">
+  <h1>Log In</h1>
+
+  <input type="text" placeholder="Phone Number">
+  <input type="text" placeholder="Password">
+
+  <button>Submit</button>
+  
+  <p class="forget-password">Forget Password? <a href="forgetpassword.html">Click Here!</a></p>
+</div>
 </body>
 </html>
