@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>Add an Expense</title>
+<head>
+  <title>Add an Expense and See Recent Transactions</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       text-align: center;
@@ -18,10 +20,165 @@
       font-size: 1.5em;
       margin-top: 1em;
     }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #000000;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #category-chart-container {
+      width: 50%;
+      margin: 20px auto;
+    }
   </style>
 </head>
 <body>
-  <h1>Add an Expense</h1>
-  <p>Fill in the following details to analyse your expenses.</p.
+   <h1>Add an Expense</h1>
+   <p>Fill in the following details to analyse your expenses.</p>
+
+<!-- Form for adding an expense -->
+<form id="expense-form">
+  <input type="text" id="name" placeholder="Name">
+  <input type="text" id="description" placeholder="Description">
+  <input type="number" id="amount" placeholder="Amount">
+  <select id="expense_category">
+    <option value="food">Food</option>
+    <option value="transportation">Transportation</option>
+    <option value="entertainment">Entertainment</option>
+    <option value="other">Other</option>
+  </select>
+  <br></br>
+  <button type="button" id="add-expense-button">Add Expense</button>
+  <br></br>
+</form>
+
+<!-- Table for displaying recent transactions -->
+<table id="transactions-table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Expense Category</th>
+    <th>Date</th>
+  </tr>
+</table>
+
+<!-- Container for the pie chart -->
+<div id="category-chart-container">
+  <canvas id="category-chart"></canvas>
+</div>
+
+<!-- JavaScript to handle form submission, display transactions, and create pie chart -->
+<script>
+  const transactions = [];
+  let categoryChart;
+
+  document.getElementById("add-expense-button").addEventListener("click", function() {
+    // Get input values and add a new transaction object
+    const name = document.getElementById("name").value;
+    const description = document.getElementById("description").value;
+    const amount = document.getElementById("amount").value;
+    const expenseCategory = document.getElementById("expense_category").value;
+    const currentDate = new Date().toLocaleString();
+
+    const transaction = {
+      name: name,
+      description: description,
+      amount: amount,
+      expenseCategory: expenseCategory,
+      date: currentDate
+    };
+
+    transactions.push(transaction);
+    displayTransactions();
+    updateCategoryChart();
+    
+    // Clear input fields after adding
+    document.getElementById("name").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("amount").value = "";
+  });
+
+  function displayTransactions() {
+    const table = document.getElementById("transactions-table");
+    const rows = transactions.map(transaction => {
+      return `<tr>
+                <td>${transaction.name}</td>
+                <td>${transaction.description}</td>
+                <td>${transaction.amount}</td>
+                <td>${transaction.expenseCategory}</td>
+                <td>${transaction.date}</td>
+              </tr>`;
+    });
+    table.innerHTML = `
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Expense Category</th>
+        <th>Date</th>
+      </tr>
+      ${rows.join("")}
+    `;
+  }
+
+  function updateCategoryChart() {
+    const categoryCounts = {};
+    transactions.forEach(transaction => {
+      if (categoryCounts[transaction.expenseCategory]) {
+        categoryCounts[transaction.expenseCategory]++;
+      } else {
+        categoryCounts[transaction.expenseCategory] = 1;
+      }
+    });
+
+    const categoryNames = Object.keys(categoryCounts);
+    const categoryValues = Object.values(categoryCounts);
+
+    if (categoryChart) {
+      categoryChart.destroy(); // Clear the previous chart instance
+    }
+
+    const categoryChartCanvas = document.getElementById("category-chart").getContext("2d");
+    categoryChart = new Chart(categoryChartCanvas, {
+      type: "pie",
+      data: {
+        labels: categoryNames,
+        datasets: [{
+          data: categoryValues,
+          backgroundColor: [
+            "rgb(255, 99, 132)",
+            "rgb(54, 162, 235)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+            "rgb(153, 102, 255)",
+            "rgb(255, 159, 64)"
+          ],
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "right"
+          }
+        }
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
