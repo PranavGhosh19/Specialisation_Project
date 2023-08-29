@@ -8,28 +8,28 @@
       text-align: center;
       font-family: sans-serif;
       background-color: #0F1C2E;
+      color: #FFFFFF;
     }
 
     h1 {
-      color: #FFFFFF;
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
     p {
-      color: #FFFFFF;
-      font-size: 1.5em;
+      font-size: 1.2em;
       margin-top: 1em;
     }
+
     table {
       border-collapse: collapse;
       width: 100%;
       border: 1px solid #000000;
+      margin-top: 20px;
     }
 
     th, td {
       border: 1px solid #ddd;
       padding: 8px;
-      text-align: left;
     }
 
     th {
@@ -44,11 +44,10 @@
 </head>
 <body>
    <h1>Add an Expense</h1>
-   <p>Fill in the following details to analyse your expenses.</p>
+   <p>Fill in the following details to analyze your expenses.</p>
 
 <!-- Form for adding an expense -->
 <form id="expense-form">
-  <input type="text" id="name" placeholder="Name">
   <input type="text" id="description" placeholder="Description">
   <input type="number" id="amount" placeholder="Amount">
   <select id="expense_category">
@@ -57,19 +56,18 @@
     <option value="entertainment">Entertainment</option>
     <option value="other">Other</option>
   </select>
-  <br></br>
+  <br><br>
   <button type="button" id="add-expense-button">Add Expense</button>
-  <br></br>
+  <br><br>
 </form>
 
 <!-- Table for displaying recent transactions -->
 <table id="transactions-table">
   <tr>
-    <th>Name</th>
+    <th>Date</th>
+    <th>Category</th>
     <th>Description</th>
     <th>Amount</th>
-    <th>Expense Category</th>
-    <th>Date</th>
   </tr>
 </table>
 
@@ -85,14 +83,12 @@
 
   document.getElementById("add-expense-button").addEventListener("click", function() {
     // Get input values and add a new transaction object
-    const name = document.getElementById("name").value;
     const description = document.getElementById("description").value;
     const amount = document.getElementById("amount").value;
     const expenseCategory = document.getElementById("expense_category").value;
     const currentDate = new Date().toLocaleString();
 
     const transaction = {
-      name: name,
       description: description,
       amount: amount,
       expenseCategory: expenseCategory,
@@ -104,7 +100,6 @@
     updateCategoryChart();
     
     // Clear input fields after adding
-    document.getElementById("name").value = "";
     document.getElementById("description").value = "";
     document.getElementById("amount").value = "";
   });
@@ -113,20 +108,18 @@
     const table = document.getElementById("transactions-table");
     const rows = transactions.map(transaction => {
       return `<tr>
-                <td>${transaction.name}</td>
+                <td>${transaction.date}</td>
+                <td>${transaction.expenseCategory}</td>
                 <td>${transaction.description}</td>
                 <td>${transaction.amount}</td>
-                <td>${transaction.expenseCategory}</td>
-                <td>${transaction.date}</td>
               </tr>`;
     });
     table.innerHTML = `
       <tr>
-        <th>Name</th>
+        <th>Date</th>
+        <th>Category</th>
         <th>Description</th>
         <th>Amount</th>
-        <th>Expense Category</th>
-        <th>Date</th>
       </tr>
       ${rows.join("")}
     `;
@@ -136,9 +129,9 @@
     const categoryCounts = {};
     transactions.forEach(transaction => {
       if (categoryCounts[transaction.expenseCategory]) {
-        categoryCounts[transaction.expenseCategory]++;
+        categoryCounts[transaction.expenseCategory] += parseFloat(transaction.amount);
       } else {
-        categoryCounts[transaction.expenseCategory] = 1;
+        categoryCounts[transaction.expenseCategory] = parseFloat(transaction.amount);
       }
     });
 
@@ -160,9 +153,7 @@
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
             "rgb(255, 205, 86)",
-            "rgb(75, 192, 192)",
-            "rgb(153, 102, 255)",
-            "rgb(255, 159, 64)"
+            "rgb(75, 192, 192)"
           ],
           hoverOffset: 4
         }]
