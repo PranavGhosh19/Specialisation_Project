@@ -108,45 +108,61 @@
   document.getElementById("expense_date").value = ""; // Clear the date picker
 });
 
-  function displayTransactions() {
+function displayTransactions() {
   const table = document.getElementById("transactions-table");
-  const rows = transactions.map(transaction => {
-    const displayDate = transaction.date ? transaction.date : new Date().toLocaleString(); // Use current date if no date is provided
+
+  // Sort transactions by date in descending order
+  const sortedTransactions = transactions.slice().sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
+  const rows = sortedTransactions.map(transaction => {
+    const displayDate = transaction.date ? transaction.date : new Date().toLocaleString();
     return `<tr>
               <td>${displayDate}</td>
               <td>${transaction.expenseCategory}</td>
               <td>${transaction.description}</td>
               <td>${transaction.amount}</td>
             </tr>`;
-    });
-    table.innerHTML = `
-      <tr>
-        <th>Date</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Amount</th>
-      </tr>
-      ${rows.join("")}
-    `;
-  }
+  });
+
+  table.innerHTML = `
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+    ${rows.join("")}
+  `;
+}
+
 
   function updateCategoryChart() {
     const categoryCounts = {};
-    transactions.forEach(transaction => {
+    const sortedTransactions = transactions.slice().sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+  
+    sortedTransactions.forEach(transaction => {
       if (categoryCounts[transaction.expenseCategory]) {
         categoryCounts[transaction.expenseCategory] += parseFloat(transaction.amount);
       } else {
         categoryCounts[transaction.expenseCategory] = parseFloat(transaction.amount);
       }
     });
-
+  
     const categoryNames = Object.keys(categoryCounts);
     const categoryValues = Object.values(categoryCounts);
-
+  
     if (categoryChart) {
       categoryChart.destroy(); // Clear the previous chart instance
     }
-
+  
     const categoryChartCanvas = document.getElementById("category-chart").getContext("2d");
     categoryChart = new Chart(categoryChartCanvas, {
       type: "pie",
