@@ -99,10 +99,10 @@
         return false; // Prevent form submission
       }
 
-      // Update form action if passwords match
-      document.getElementById("registration-form").action = "homescreen.html";
+      // If passwords match, you can redirect the user to the next page.
+      window.location.href = 'homescreen.html';
 
-      return true; // Allow form submission if passwords match
+      return false; // Prevent the form from submitting before the redirection.
     }
   </script>
 </body>
