@@ -90,22 +90,20 @@
   </div>
 
   <script>
-    function validateFormAndRedirect() {
-  var password = document.getElementById("password").value;
-  var confirmPassword = document.getElementById("confirm-password").value;
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password").value;
 
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return false; // Prevent form submission
-  }
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false; // Prevent form submission
+      }
 
-  console.log("Redirecting..."); // Check if this message appears in the console
+      // Update form action if passwords match
+      document.getElementById("registration-form").action = "homecreen.html";
 
-  // If passwords match, you can redirect the user to the next page.
-  window.location.href = 'homescreen.html';
-
-  return false; // Prevent the form from submitting before the redirection.
-}
+      return true; // Allow form submission if passwords match
+    }
   </script>
 </body>
 </html>
