@@ -1,134 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: sans-serif;
-      background-color: #0F1C2E;
       margin: 0;
-      height: 100vh;
-    }
-
-    h1 {
-      color: #FFFFFF;
-      font-size: 3em;
-    }
-    
-    h2 {
-      color: #FFFFFF;
-      font-size: 2em;
-    }
-
-    p {
-      color: #FFFFFF;
-      font-size: 1.5em;
-      margin-top: 1em;
-    }
-
-    header {
-      order: -1; /* Move the header above the navigation */
-    }
-
-    nav {
-      order: 1; /* Move the nav to the right */
-    }
-
-    nav ul {
-      list-style-type: none;
       padding: 0;
-      display: flex;
-      flex-direction: row;
     }
 
-    nav li {
-      margin-right: 20px;
+    #container {
+      width: 1280px;
+      height: 832px;
+      position: relative;
+      background: #1F2B3E;
     }
 
-    button {
-      margin-top: 20px;
+    .box {
+      position: absolute;
+      text-align: center;
+      color: white;
+      font-size: 28px;
+      font-family: 'Poppins';
+      word-wrap: break-word;
     }
 
-    section {
-      margin-top: 20px;
+    #welcome {
+      left: 31px;
+      top: 35px;
+      font-style: italic;
+      font-weight: 700;
     }
 
-    footer {
-      margin-top: 20px;
+    #settings {
+      left: 1126px;
+      top: 35px;
+      font-weight: 400;
+    }
+
+    #expenses {
+      left: 959px;
+      top: 35px;
+      font-weight: 400;
+    }
+
+    #friends {
+      left: 819px;
+      top: 35px;
+      font-weight: 400;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Spend Wise</h1>
-  <p>This site will help you with your financial goals. It will record your every time expenses, and categorize them so that you can analyze them.</p>
-
-  <header>
-    <h2>Dashboard</h2>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="#summary">Summary</a></li>
-      <li><a href="#expenses">Expenses</a></li>
-      <li><a href="#groups">Groups</a></li>
-      <li><a href="#settings">Settings</a></li>
-      <li><a href="login.html">Logout</a></li>
-    </ul>
-  </nav>
-
-  <button><a href="addanexpense.html">Add Expenses</a></button>
-
-  <section id="summary">
-    <h2>Summary</h2>
-      <p>Total Expenses: $500</p>
-      <p>Total Owed: $250</p>
-      <p>Total Lent: $100</p>
-  </section>
-
-  <section id="expenses">
-    <h2>Expenses</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2023-09-01</td>
-          <td>Rent Payment</td>
-          <td>$300</td>
-        </tr>
-                <!-- Add more expense rows here -->
-      </tbody>
-    </table>
-  </section>
-
-  <section id="groups">
-    <h2>Groups</h2>
-      <ul>
-        <li><a href="group.html">Family Group</a></li>
-            <!-- Add more group links here -->
-      </ul>
-  </section>
-
-  <section id="settings">
-    <h2>Settings</h2>
-      <ul>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="account.html">Account</a></li>
-      </ul>
-  </section>
-
-  <footer>
-    <p>&copy; 2023 Spend-Wise</p>
-  </footer>
+  <div id="container">
+    <div class="box" id="welcome">Welcome Sharel,</div>
+    <div class="box" id="settings">Settings</div>
+    <div class="box" id="expenses">Expenses</div>
+    <div class="box" id="friends">Friends</div>
+  </div>
 </body>
+<script>
+  // You can add JavaScript code here if needed
+</script>
 </html>
