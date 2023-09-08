@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Creation</title>
+</head>
+<body>
+    <h1>Create a New Group</h1>
+
+    <form id="group-form">
+        <label for="group-name">Group Name:</label>
+        <input type="text" id="group-name" name="group-name" required><br><br>
+
+        <label for="group-description">Group Description:</label>
+        <textarea id="group-description" name="group-description"></textarea><br><br>
+
+        <label for="members">Add Members:</label><br>
+        <input type="checkbox" id="member-1" name="member-1" value="User 1">
+        <label for="member-1">User 1</label><br>
+
+        <input type="checkbox" id="member-2" name="member-2" value="User 2">
+        <label for="member-2">User 2</label><br>
+
+        <!-- Add more members as needed -->
+
+        <button type="submit">Create Group</button>
+    </form>
+</body>
+</html>
