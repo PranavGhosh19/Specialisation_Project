@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Dashboard</title>
     <style>
         body {
             text-align: center;
@@ -33,25 +33,25 @@
         .dashboard {
             left: 46px;
             top: 35px;
-            font-weight: 700;
+            font-weight: 900;
         }
 
         .groups {
             left: 817px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 100;
         }
 
         .expenses {
             left: 959px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 100;
         }
 
         .settings {
             left: 1126px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 100;
         }
 
         .horizontal-line {
@@ -66,21 +66,29 @@
 </head>
 <body>
     <div class="container">
-        <div class="nav-link dashboard">Dashboard</div>
+        <div class="nav-link dashboard" onclick="openDashboardPage()">Dashboard</div>
         <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
         <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
-        <div class="nav-link settings">Settings</div>
+        <div class="nav-link settings" onclick="openSettingPage()">Settings</div>
         <hr class="horizontal-line">
     </div>
     
     <script>
-        function openExpensesPage() {
+        function openDashboardPage() {
             // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'addanexpense.html'; // Change to the actual page URL
+            window.location.href = 'homescreen.html'; // Change to the actual page URL
         }
         function openGroupPage() {
             // Redirect to the expenses page when Expenses is clicked
             window.location.href = 'groupcreation.html'; // Change to the actual page URL
+        }
+        function openExpensesPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'addanexpense.html'; // Change to the actual page URL
+        }
+        function openSettingsPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'settings.html'; // Change to the actual page URL
         }
     </script>
 </body>
