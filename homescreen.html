@@ -67,7 +67,7 @@
 <body>
     <div class="container">
         <div class="nav-link dashboard">Dashboard</div>
-        <div class="nav-link groups">Groups</div>
+        <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
         <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
         <div class="nav-link settings">Settings</div>
         <hr class="horizontal-line">
@@ -77,6 +77,10 @@
         function openExpensesPage() {
             // Redirect to the expenses page when Expenses is clicked
             window.location.href = 'addanexpense.html'; // Change to the actual page URL
+        }
+        function openGroupPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'groupcreation.html'; // Change to the actual page URL
         }
     </script>
 </body>
