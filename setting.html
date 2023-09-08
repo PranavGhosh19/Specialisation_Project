@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add an Expense</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            background-color: #0F1C2E;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 1280px;
+            height: 1703px;
+            position: relative;
+            background: #0F1C2E;
+        }
+
+        .nav-link {
+            position: absolute;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            white-space: nowrap;
+            cursor: pointer
+            
+        }
+
+        .dashboard {
+            left: 46px;
+            top: 35px;
+            font-weight: 700;
+        }
+
+        .groups {
+            left: 817px;
+            top: 35px;
+            font-weight: 400;
+        }
+
+        .expenses {
+            left: 959px;
+            top: 35px;
+            font-weight: 400;
+        }
+
+        .settings {
+            left: 1126px;
+            top: 35px;
+            font-weight: 400;
+        }
+
+        .horizontal-line {
+            font-family: sans-serif;
+            position: absolute;
+            width: 1214px;
+            height: 0;
+            left: 25px;
+            top: 91.5px;
+            border: 2.5px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-link dashboard" onclick="openDashboardPage()">Dashboard</div>
+        <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
+        <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
+        <div class="nav-link settings" onclick="openSettingsPage()">Settings</div>
+        <hr class="horizontal-line">
+    </div>
+    
+    <h1>Add an Expense</h1>
+    
+    <script>
+        function openDashboardPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'homescreen.html'; // Change to the actual page URL
+        }
+        function openGroupPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'groupcreation.html'; // Change to the actual page URL
+        }
+        function openExpensesPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'addanexpense.html'; // Change to the actual page URL
+        }
+        function openSettingsPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'setting.html'; // Change to the actual page URL
+        }
+    </script>
+</body>
+</html>
 
