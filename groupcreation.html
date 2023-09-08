@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Creation</title>
     <style>
-      body {
+        body {
             text-align: center;
             font-family: sans-serif;
             background-color: #0F1C2E;
@@ -13,8 +13,8 @@
         }
 
         .container {
-            max-width: 100%;
-            height: 100vh;
+            width: 1280px;
+            height: 1703px;
             position: relative;
             background: #0F1C2E;
         }
@@ -27,71 +27,69 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
             white-space: nowrap;
-            cursor: pointer;
+            cursor: pointer
         }
 
         .dashboard {
-            left: 5%;
+            left: 46px;
             top: 35px;
             font-weight: 100;
         }
 
         .groups {
-            left: 30%;
+            left: 817px;
             top: 35px;
             font-weight: 900;
         }
 
         .expenses {
-            left: 50%;
+            left: 959px;
             top: 35px;
             font-weight: 100;
-            transform: translateX(-50%);
         }
 
         .settings {
-            left: 75%;
+            left: 1126px;
             top: 35px;
             font-weight: 100;
         }
 
         .horizontal-line {
             position: absolute;
-            width: 80%;
+            width: 1214px;
             height: 0;
-            left: 10%;
+            left: 25px;
             top: 91.5px;
             border: 2.5px solid white;
         }
     </style>
 </head>
 <body>
-  <div class="container">
-        <a class="nav-link dashboard" href="index.html">Dashboard</a>
-        <a class="nav-link groups" href="groups.html">Groups</a>
-        <a class="nav-link expenses" href="addanexpense.html">Expenses</a>
-        <a class="nav-link settings" href="settings.html">Settings</a>
+    <div class="container">
+        <div class="nav-link dashboard" onclick="openDashboardPage()">Dashboard</div>
+        <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
+        <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
+        <div class="nav-link settings" onclick="openSettingPage()">Settings</div>
         <hr class="horizontal-line">
     </div>
-    <h1>Create a New Group</h1>
-
-    <form id="group-form">
-        <label for="group-name">Group Name:</label>
-        <input type="text" id="group-name" name="group-name" required><br><br>
-
-        <label for="group-description">Group Description:</label>
-        <textarea id="group-description" name="group-description"></textarea><br><br>
-
-        <label for="members">Add Members:</label><br>
-        <input type="checkbox" id="member-1" name="member-1" value="User 1">
-        <label for="member-1">User 1</label><br>
-
-        <input type="checkbox" id="member-2" name="member-2" value="User 2">
-        <label for="member-2">User 2</label><br>
-
-        <!-- Add more members as needed -->
-
-        <button type="submit">Create Group</button>
-    </form>
+    
+    <script>
+        function openDashboardPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'homescreen.html'; // Change to the actual page URL
+        }
+        function openGroupPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'groupcreation.html'; // Change to the actual page URL
+        }
+        function openExpensesPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'addanexpense.html'; // Change to the actual page URL
+        }
+        function openSettingsPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'settings.html'; // Change to the actual page URL
+        }
+    </script>
 </body>
 </html>
