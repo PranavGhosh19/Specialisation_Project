@@ -1,66 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-    #container {
-      width: 1280px;
-      height: 832px;
-      position: relative;
-      background: #1F2B3E;
-    }
+        .container {
+            width: 1280px;
+            height: 1703px;
+            position: relative;
+            background: #0F1C2E;
+        }
 
-    .box {
-      position: absolute;
-      text-align: center;
-      color: white;
-      font-size: 28px;
-      font-family: 'Poppins';
-      word-wrap: break-word;
-    }
+        .nav-link {
+            position: absolute;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            white-space: nowrap;
+            cursor: pointer
+        }
 
-    #welcome {
-      left: 31px;
-      top: 35px;
-      font-style: italic;
-      font-weight: 700;
-    }
+        .dashboard {
+            left: 46px;
+            top: 35px;
+            font-weight: 700;
+        }
 
-    #settings {
-      left: 1126px;
-      top: 35px;
-      font-weight: 400;
-    }
+        .groups {
+            left: 817px;
+            top: 35px;
+            font-weight: 400;
+        }
 
-    #expenses {
-      left: 959px;
-      top: 35px;
-      font-weight: 400;
-    }
+        .expenses {
+            left: 959px;
+            top: 35px;
+            font-weight: 400;
+        }
 
-    #friends {
-      left: 819px;
-      top: 35px;
-      font-weight: 400;
-    }
-  </style>
+        .settings {
+            left: 1126px;
+            top: 35px;
+            font-weight: 400;
+        }
+
+        .horizontal-line {
+            position: absolute;
+            width: 1214px;
+            height: 0;
+            left: 25px;
+            top: 91.5px;
+            border: 2.5px solid white;
+        }
+    </style>
 </head>
 <body>
-  <div id="container">
-    <div class="box" id="welcome">Welcome Sharel,</div>
-    <div class="box" id="settings">Settings</div>
-    <div class="box" id="expenses">Expenses</div>
-    <div class="box" id="friends">Friends</div>
-  </div>
+    <div class="container">
+        <div class="nav-link dashboard">Dashboard</div>
+        <div class="nav-link groups">Groups</div>
+        <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
+        <div class="nav-link settings">Settings</div>
+        <hr class="horizontal-line">
+    </div>
+    
+    <script>
+        function openExpensesPage() {
+            // Redirect to the expenses page when Expenses is clicked
+            window.location.href = 'addanexpense.html'; // Change to the actual page URL
+        }
+    </script>
 </body>
-<script>
-  // You can add JavaScript code here if needed
-</script>
 </html>
