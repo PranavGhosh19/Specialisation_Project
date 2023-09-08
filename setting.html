@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add an Expense</title>
+    <title>Settings</title>
     <style>
         body {
             text-align: center;
@@ -28,35 +28,33 @@
             font-weight: 400;
             white-space: nowrap;
             cursor: pointer
-            
         }
 
         .dashboard {
             left: 46px;
             top: 35px;
-            font-weight: 700;
+            font-weight: 100;
         }
 
         .groups {
             left: 817px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 100;
         }
 
         .expenses {
             left: 959px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 100;
         }
 
         .settings {
             left: 1126px;
             top: 35px;
-            font-weight: 400;
+            font-weight: 900;
         }
 
         .horizontal-line {
-            font-family: sans-serif;
             position: absolute;
             width: 1214px;
             height: 0;
@@ -71,11 +69,9 @@
         <div class="nav-link dashboard" onclick="openDashboardPage()">Dashboard</div>
         <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
         <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
-        <div class="nav-link settings" onclick="openSettingsPage()">Settings</div>
+        <div class="nav-link settings" onclick="openSettingPage()">Settings</div>
         <hr class="horizontal-line">
     </div>
-    
-    <h1>Add an Expense</h1>
     
     <script>
         function openDashboardPage() {
@@ -92,9 +88,8 @@
         }
         function openSettingsPage() {
             // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'setting.html'; // Change to the actual page URL
+            window.location.href = 'settings.html'; // Change to the actual page URL
         }
     </script>
 </body>
 </html>
-
