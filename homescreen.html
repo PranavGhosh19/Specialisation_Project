@@ -3,93 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
-        body {
-            text-align: center;
-            font-family: sans-serif;
-            background-color: #0F1C2E;
-            color: #FFFFFF;
+        body,html {
+          margin: 0;
+          font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+          background: #0F1C2E; /* Background color is #0F1C2E */
         }
 
-        .container {
-            width: 100%;
-            height: 1703px;
-            position: relative;
-            background: #0F1C2E;
+        ul { 
+          margin: 150px auto 0; 
+          padding: 0; 
+          list-style: none; 
+          display: table;
+          width: 1400px; /* Increase the width to accommodate all menu items */
+          text-align: center;
+          position: relative; /* Add relative positioning to the container */
         }
 
-        .nav-link {
-            position: absolute;
-            text-align: center;
-            color: white;
-            font-size: 28px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            white-space: nowrap;
-            cursor: pointer
+        li { 
+          display: table-cell; 
+          position: relative; 
+          padding: 15px 0;
         }
 
-        .dashboard {
-            left: 46px;
-            top: 35px;
-            font-weight: 900;
+        /* Apply position for each menu item */
+        li:nth-child(1) { /* Dashboard */
+          left: 46px;
+          top: 35px;
         }
 
-        .groups {
-            left: 817px;
-            top: 35px;
-            font-weight: 100;
+        li:nth-child(2) { /* Groups */
+          left: 817px;
+          top: 35px;
         }
 
-        .expenses {
-            left: 959px;
-            top: 35px;
-            font-weight: 100;
+        li:nth-child(3) { /* Expenses */
+          left: 959px;
+          top: 35px;
         }
 
-        .settings {
-            left: 1126px;
-            top: 35px;
-            font-weight: 100;
+        li:nth-child(4) { /* Settings */
+          left: 1126px;
+          top: 35px;
         }
 
-        .horizontal-line {
-            position: absolute;
-            width: 1214px;
-            height: 0;
-            left: 25px;
-            top: 91.5px;
-            border: 2.5px solid white;
+        a {
+          color: #fff;
+          text-transform: uppercase;
+          text-decoration: none;
+          letter-spacing: 0.15em;     
+          display: inline-block;
+          padding: 15px 20px;
+          position: relative;
+        }
+
+        a:after {    
+          background: none repeat scroll 0 0 transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 4px;
+          left: 50%;
+          position: absolute;
+          background: #fff;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+
+        a:hover:after { 
+          width: 100%; 
+          left: 0;
+          background-color:#00fffc;
+        }
+
+        @media screen and 
+        (max-height: 300px) {
+            ul {
+                margin-top: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-link dashboard" onclick="openDashboardPage()">Dashboard</div>
-        <div class="nav-link groups" onclick="openGroupPage()">Groups</div>
-        <div class="nav-link expenses" onclick="openExpensesPage()">Expenses</div>
-        <div class="nav-link settings" onclick="openSettingPage()">Settings</div>
-        <hr class="horizontal-line">
-    </div>
-    
-    <script>
-        function openDashboardPage() {
-            // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'homescreen.html'; // Change to the actual page URL
-        }
-        function openGroupPage() {
-            // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'groupcreation.html'; // Change to the actual page URL
-        }
-        function openExpensesPage() {
-            // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'addanexpense.html'; // Change to the actual page URL
-        }
-        function openSettingPage() {
-            // Redirect to the expenses page when Expenses is clicked
-            window.location.href = 'setting.html'; // Change to the actual page URL
-        }
-    </script>
+    <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Groups</a></li>
+        <li><a href="#">Expenses</a></li>
+        <li><a href="#">Settings</a></li>
+    </ul>
 </body>
 </html>
