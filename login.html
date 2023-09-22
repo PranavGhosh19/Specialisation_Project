@@ -87,8 +87,6 @@
       transition: .5s;
       margin-top: 40px;
       letter-spacing: 4px
-      
-      
     }
     
     .login-box a:hover {
@@ -106,6 +104,7 @@
       display: block;
     }
     
+        
     .login-box a span:nth-child(1) {
       top: 0;
       left: -100%;
@@ -180,6 +179,54 @@
         bottom: 100%;
       }
     }
+    
+    .forget {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0 15px;
+            font-size: 0.9em;
+            color: #fff;
+        }
+        
+        .forget label:nth-child(2){
+            order: 1;
+        }
+        
+        .forget label{
+            display: flex;
+            align-items: center;
+        }
+        
+        .forget label input[ type="checkbox"]{
+            margin-right: 6px
+        }
+        
+        .forget label a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .forget label a:hover{
+            text-decoration: underline;
+        }
+        
+        .register {
+            font-size: 0.9em;
+            color: #fff;
+            text-align: center;
+            margin: 20px 0 15px;
+        }
+        
+        .register p a{
+            text-decoration: none;
+            color: #fff;
+            font-weight: 800;
+        }
+        
+        .register p a:hover{
+          text-decoration: underline !important;
+        }
+        
   </style>
 </head>
 <body>
@@ -191,9 +238,17 @@
         <label>Mobile Number</label>
       </div>
       <div class="user-box">
-        <ion-icon name="lock-closed-outline"></ion-icon>
         <input type="password" name="" required="">
         <label>Password</label>
+      </div>
+      
+      <div class="forget">
+        <label for="">
+          <input type="checkbox">Remember me
+        </label>
+        <label for="">
+          Forget Password
+        </label>
       </div>
       <a href="homescreen.html">
         <span></span>
@@ -203,6 +258,9 @@
         Submit
       </a>
     </form>
+    <div class="register">
+      <p>Don't have an account ? <a href="index.html">Register</a></p>
+    </div>
   </div>
 </body>
 </html>
